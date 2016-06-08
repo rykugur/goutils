@@ -1,4 +1,4 @@
-package goutils
+package langutils
 
 import "runtime"
 import "strings"

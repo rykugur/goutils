@@ -1,20 +1,20 @@
-package goutils
+package langutils
 
 import "testing"
 
 func TestGetFuncInfo(t *testing.T) {
 	funcInfo := GetFuncInfo()
 
-	if funcInfo != "github.com/rykugur/goutils.TestGetFuncInfo" {
-		t.Error("expected=github.com/rykugur/goutils.TestGetFuncInfo, actual=", funcInfo)
+	if funcInfo != "github.com/rykugur/goutils/lang.TestGetFuncInfo" {
+		t.Error("expected=github.com/rykugur/langutils.TestGetFuncInfo, actual=", funcInfo)
 	}
 }
 
 func TestGetPackageName(t *testing.T) {
 	packageName := GetPackageName()
 
-	if packageName != "github.com/rykugur/goutils" {
-		t.Error("expected=github.com/rykugur/goutils, actual=", packageName)
+	if packageName != "github.com/rykugur/goutils/lang" {
+		t.Error("expected=github.com/rykugur/langutils, actual=", packageName)
 	}
 }
 
