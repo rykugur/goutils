@@ -1,10 +1,15 @@
 package cryptoutils
 
 import (
+	"bufio"
 	"crypto/sha512"
 	"encoding/base64"
 	"errors"
+	"fmt"
+	"golang.org/x/crypto/ssh/terminal"
 	"hash"
+	"os"
+	"syscall"
 )
 
 // Returns the base64-encoded sha-512 hash of the given string.
@@ -33,4 +38,19 @@ func hashImpl(hash hash.Hash, encoding *base64.Encoding, hashMe string) (string,
 	}
 
 	return encoding.EncodeToString(hasher.Sum(nil)), nil
+}
+
+// Returns the user-supplied username, CLEARTEXT password, and any error
+// that may have occurred.
+func Credentials() (string, string) {
+	reader := bufio.NewReader(os.Stdin)
+
+	fmt.Println("Enter Username: ")
+	username, _ := reader.ReadString('\n')
+
+	fmt.Print("Enter Password: ")
+	bytePassword, _ := terminal.ReadPassword(int(syscall.Stdin))
+	password := string(bytePassword)
+
+	return username, password
 }
