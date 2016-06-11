@@ -1,13 +1,10 @@
 package credentials
 
 import (
-	log "github.com/Sirupsen/logrus"
-
 	"bufio"
 	"fmt"
 	"golang.org/x/crypto/ssh/terminal"
 	"os"
-	"strings"
 	"syscall"
 )
 
